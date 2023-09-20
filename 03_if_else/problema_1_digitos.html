@@ -14,10 +14,10 @@
         <p v-if="numero < 10">
             Tiene un dígito
         </p>
-        <p v-if="numero < 100">
+        <p v-else-if="numero < 100">
             Tiene dos dígitos
         </p>
-        <p v-if="numero == 100">
+        <p v-else="numero == 100">
             Tiene tres dígitos
         </p>
     </div>
@@ -28,7 +28,7 @@
         var app = new Vue({
             el: '#aplicacion',
             data: {
-                numero: ''
+                numero: '1'
             }
         });
     </script>
