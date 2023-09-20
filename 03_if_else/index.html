@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 - Directiva v-if, v-else y v-show</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <p>
+            Ingrese edad: <input type="text" v-model="edad">
+        </p>
+        <p v-if="edad >= 18">
+            Eres mayor de edad
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                edad: ''
+            }
+        });
+    </script>
+</body>
+</html>
