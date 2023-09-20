@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 - Directiva de Modelo</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <div>
+        Nombre: <input type="text" v-model="nombre">
+        <br>
+        Edad: <input type="text" v-model="edad">
+        <br>
+
+        <p>
+            Nombre: {{nombre}}
+            <br>
+            Edad: {{edad}}
+        </p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: 'div',
+            data: {
+                nombre: '',
+                edad: ''
+            }
+        });
+    </script>
+</body>
+</html>
