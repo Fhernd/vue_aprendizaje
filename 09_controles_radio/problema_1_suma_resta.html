@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. Problema 1 - Suma o Resta</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <form v-on:submit.prevent="calcular">
+            Primer número: <input type="number" v-model="numero1"><br>
+            Segundo número: <input type="number" v-model="numero2"><br>
+            <input type="radio" value="suma" v-model="operacion" id="suma">
+            <label for="suma">Suma</label>
+            <input type="radio" value="resta" v-model="operacion" id="resta">
+            <label for="resta">Resta</label><br>
+
+            <input type="submit" value="Calcular">
+
+            <p>
+                El resultado es: {{numero1}} {{operacion}} {{numero2}} = {{numero1 + numero2}}
+            </p>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#aplicacion',
+            data: {
+                numero1: 0,
+                numero2: 0,
+                operacion: 'suma',
+                resultado: 0
+            },
+            methods: {
+                calcular: function () {
+                    this.numero1 = parseInt(this.numero1);
+                    this.numero2 = parseInt(this.numero2);
+                    
+                    if (this.operacion == 'suma') {
+                        this.resultado = this.numero1 + this.numero2;
+                    } else {
+                        this.resultado = this.numero1 - this.numero2;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
