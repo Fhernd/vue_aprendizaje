@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 1 - Captura de eventos en Vuew (v-on:click)</title>
+</head>
+<body>
+    <div id="aplicacion">
+        Primer número: <input type="text" v-model="numero1"><br>
+        Segundo número: <input type="text" v-model="numero2"><br>
+        <button v-on:click="sumar">Sumar</button><br>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                numero1: 0,
+                numero2: 0
+            },
+            methods: {
+                sumar: function() {
+                    var suma = parseInt(this.numero1) + parseInt(this.numero2);
+                    alert("La suma es: " + suma);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
