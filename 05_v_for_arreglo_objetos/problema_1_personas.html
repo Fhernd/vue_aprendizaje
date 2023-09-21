@@ -11,7 +11,7 @@
     <div id="aplicacion">
         <ol>
             <li v-for="persona in personas">
-                {{persona.nombre}}
+                {{persona.nombre}} (<span v-if="persona.edad < 18">es menor de edad</span><span v-else>es mayor de edad</span>)
             </li>
         </ol>
     </div>
