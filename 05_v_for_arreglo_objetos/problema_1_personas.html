@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Arreglo con Objetos</title>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <ol>
+            <li v-for="persona in personas">
+                {{persona.nombre}}
+            </li>
+        </ol>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                personas: [{
+                    nombre: 'José',
+                    edad: 12
+                }, {
+                    nombre: 'Ana',
+                    edad: 43
+                }, {
+                    nombre: 'Pedro',
+                    edad: 4
+                }, {
+                    nombre: 'María',
+                    edad: 12
+                }]
+            }
+        });
+    </script>
+</body>
+
+</html>
