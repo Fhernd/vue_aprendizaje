@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8. Problema 1 - Generador de un Rango de Valores</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <form v-on:submit.prevent="generarRango">
+            Primer número: <input type="number" v-model="primerNumero">
+            <br>
+            Segundo número: <input type="number" v-model="segundoNumero">
+            <br>
+            <input type="submit" value="Generar">
+        </form>
+
+        <br>
+        Números: {{resultado}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#aplicacion',
+            data: {
+                primerNumero: '',
+                segundoNumero: '',
+                numeros: [],
+                resultado: ''
+            },
+            methods: {
+                generarRango: function () {
+                    this.numeros = [];
+                    for (let i = this.primerNumero; i <= this.segundoNumero; i++) {
+                        this.numeros.push(i);
+                    }
+
+                    this.resultado = this.numeros.join(', ');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
