@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Problema 1 - Días de la Semana</title>
+</head>
+<body>
+    <div id="aplicacion">
+        Lunes <input type="checkbox" v-model="dias" value="Lunes"><br>
+        Martes <input type="checkbox" v-model="dias" value="Martes"><br>
+        Miércoles <input type="checkbox" v-model="dias" value="Miércoles"><br>
+        Jueves <input type="checkbox" v-model="dias" value="Jueves"><br>
+        Viernes <input type="checkbox" v-model="dias" value="Viernes"><br>
+        Sábado <input type="checkbox" v-model="dias" value="Sábado"><br>
+        Domingo <input type="checkbox" v-model="dias" value="Domingo"><br>
+        <br>
+        <h3>Días seleccionados</h3>
+        <ul>
+            <li v-for="dia in dias">{{dia}}</li>
+        </ul>
+        <p v-if="dias.length < 5">
+            Seleccione al menos 5 días
+        </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                dias: []
+            }
+        })
+    </script>
+</body>
+</html>
