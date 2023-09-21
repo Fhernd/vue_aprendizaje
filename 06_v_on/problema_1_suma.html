@@ -10,6 +10,10 @@
         Primer número: <input type="text" v-model="numero1"><br>
         Segundo número: <input type="text" v-model="numero2"><br>
         <button v-on:click="sumar">Sumar</button><br>
+        <br>
+        <p>
+            La suma es: {{suma}}
+        </p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
@@ -19,12 +23,12 @@
             el: '#aplicacion',
             data: {
                 numero1: 0,
-                numero2: 0
+                numero2: 0,
+                suma: 0
             },
             methods: {
                 sumar: function() {
-                    var suma = parseInt(this.numero1) + parseInt(this.numero2);
-                    alert("La suma es: " + suma);
+                    this.suma = parseInt(this.numero1) + parseInt(this.numero2);
                 }
             }
         });
