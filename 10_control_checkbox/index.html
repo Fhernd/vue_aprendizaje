@@ -13,7 +13,7 @@
             <input type="checkbox" v-model="terminos">
             Acepto los términos y condiciones
         </p>
-        <button v-if="terminos">Confirmar</button>
+        <button v-if="terminos" v-on:click="mostrarConfirmacion">Confirmar</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
@@ -22,6 +22,11 @@
             el: '#aplicacion',
             data: {
                 terminos: false
+            },
+            methods: {
+                mostrarConfirmacion: function() {
+                    alert('¡Gracias por aceptar los términos y condiciones!');
+                }
             }
         })
     </script>
