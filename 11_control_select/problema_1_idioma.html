@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11. Problema 1 - Selección Idioma</title>
+</head>
+<body>
+    <div id="aplicacion">
+        <select v-model="idioma">
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+        </select>
+
+        <p v-if="idioma == 'es'">¡Bienvenido!</p>
+        <p v-else-if="idioma == 'en'">Welcome!</p>
+        <p v-else-if="idioma == 'fr'">Bienvenue!</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                idioma: 'es'
+            }
+        })
+    </script>
+</body>
+</html>
