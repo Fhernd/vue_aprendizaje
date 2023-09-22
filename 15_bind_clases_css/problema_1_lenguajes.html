@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15. Problema 1 - </title>
+    <style>
+        .tachar {
+            text-decoration: line-through;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <ul>
+            <li v-for="lenguaje in lenguajes" v-bind:class="{tachar: lenguaje.tachado}"><input type="checkbox"
+                    v-model="lenguaje.tachado">{{lenguaje.nombre}}</li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                lenguajes: [
+                    {
+                        nombre: 'C',
+                        tachado: false
+                    },
+                    {
+                        nombre: 'Java',
+                        tachado: false
+                    },
+                    {
+                        nombre: 'PHP',
+                        tachado: false
+                    },
+                    {
+                        nombre: 'Python',
+                        tachado: false
+                    },
+                    {
+                        nombre: 'Ruby',
+                        tachado: false
+                    },
+                    {
+                        nombre: 'Kotlin',
+                        tachado: false
+                    },
+                    {
+                        nombre: 'C#',
+                        tachado: false
+                    }]
+            }
+        });
+    </script>
+</body >
+
+</html >
