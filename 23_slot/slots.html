@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <mensaje>
+            <template slot="titulo">
+                <h1>Título del mensaje</h1>
+            </template>
+            <template slot="cuerpo">
+                <p>Cuerpo del mensaje</p>
+            </template>
+            <template slot="pie">
+                <p>Pie del mensaje</p>
+            </template>
+        </mensaje>
+        <hr>
+        <mensaje></mensaje>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+
+        Vue.component('mensaje', {
+            template: `
+    <div>
+      <slot name="titulo"><h1>Sin titulo</h1></slot>
+      <slot name="cuerpo"><p>Sin cuerpo</p></slot>
+      <slot name="pie"></slot>      
+    </div>
+  `
+        })
+
+
+        new Vue({
+            el: '#aplicacion'
+        })
+    </script>
+</body>
+
+</html>
