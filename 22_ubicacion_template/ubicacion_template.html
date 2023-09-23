@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <dias-semana seleccionado="sábado" inline-template>
+            <div
+                style="display: flex; flex-direction:row;justify-content:space-between;background:#ff0;font-size:1.5rem">
+                <div v-for="dia in dias">
+                    <span v-if="seleccionado==dia" style="background:#000;color:#fff">{{dia}}</span>
+                    <span v-else>{{dia}}</span>
+                </div>
+            </div>
+        </dias-semana>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+    
+    <script>
+        Vue.component('dias-semana', {
+            props: ['seleccionado'],
+            data: function () {
+                return {
+                    dias: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
+                }
+            }
+        });
+
+        new Vue({
+            el: '#aplicacion'
+        })
+
+    </script>
+</body>
+
+</html>
