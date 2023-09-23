@@ -9,7 +9,12 @@
 
 <body>
     <div id="aplicacion">
-        <buscadores></buscadores>
+        <buscadores>
+            <template slot="otros">
+                <a href="https://www.yahoo.com">Yahoo</a>
+                <a href="https://www.duckduckgo.com">DuckDuckGo</a>
+            </template>
+        </buscadores>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
