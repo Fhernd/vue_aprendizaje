@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>25. Problema 1 - Valores Aleatorios</title>
 </head>
+
 <body>
     <div id="aplicacion">
-        <numero-aleatorio></numero-aleatorio>
+        <numero-aleatorio v-bind:minimo="1" v-bind:maximo="100"></numero-aleatorio>
+        <numero-aleatorio minimo="1" maximo="10">
+            <span slot-scope="dato" style="background:black;color:white;font-size:2rem">{{dato.numero}}</span>
+        </numero-aleatorio>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
@@ -15,13 +20,12 @@
     <script>
         Vue.component('numero-aleatorio', {
             props: ['minimo', 'maximo'],
-            template: `
-                <div>
-                    <slot>
-                        {{Math.floor(Math.random() * (maximo - minimo + 1)) + minimo}}
-                    </slot>
-                </div>
-            `,
+            template: `<div><slot v-bind:numero="numero">{{numero}}</slot></div>`,
+            data: function () {
+                return {
+                    numero: Math.trunc(Math.random() * (this.maximo + 1 - this.minimo) + this.minimo)
+                }
+            }
         });
 
         new Vue({
@@ -29,4 +33,5 @@
         });
     </script>
 </body>
+
 </html>
