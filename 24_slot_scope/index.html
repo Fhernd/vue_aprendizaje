@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion1">
+        <dias-semana></dias-semana>
+        <hr>
+        <dias-semana>
+            <h1 slot-scope="valor">
+                {{valor.nombre}}
+            </h1>
+        </dias-semana>
+        <hr>
+        <dias-semana>
+            <p slot-scope="valor">
+                Día:{{valor.nombre}}
+            </p>
+        </dias-semana>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        Vue.component('dias-semana', {
+            template: `<div><slot v-for="dia in dias" v-bind:nombre="dia">{{dia}}-</slot></div>`,
+            data: function () {
+                return {
+                    dias: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
+                }
+            }
+        })
+
+        new Vue({
+            el: '#aplicacion1'
+        })
+    </script>
+</body>
+
+</html>
