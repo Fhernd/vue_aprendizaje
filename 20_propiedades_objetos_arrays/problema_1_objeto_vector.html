@@ -13,6 +13,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
 
     <script>
         Vue.component('articulos', {
@@ -32,8 +33,10 @@
             },
             mounted: function () {
                 var url = 'http://scratchya.com.ar/vue/datos.php';
-                axios.get(url).then(response => {
-                    this.datos = response.data;
+                this.$http.get(url).then(function (resp) {
+                    this.datos = resp.body;
+                }, function (error) {
+                    console.log(error);
                 });
             }
         });
