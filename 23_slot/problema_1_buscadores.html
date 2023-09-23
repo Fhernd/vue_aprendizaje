@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23. Problema 1 - Buscadores (Slots)</title>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <buscadores></buscadores>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <template id="buscadores">
+        <div>
+            <a href="https://www.google.com.ar">Google</a>
+            <a href="https://www.bing.com">Bing</a>
+            <slot name="otros"></slot>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('buscadores', {
+            template: '#buscadores'
+        });
+
+        new Vue({
+            el: '#aplicacion'
+        });
+    </script>
+</body>
+
+</html>
