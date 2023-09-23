@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22. Problema 1 - Formulario Login</title>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <login-form></login-form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <template id="loginForm">
+        <div>
+            <form action="#" method="post" @submit.prevent="enviar">
+                <div>
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" id="usuario" v-model="usuario">
+                </div>
+                <div>
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" name="contrasena" id="contrasena" v-model="contrasena">
+                </div>
+                <div>
+                    <input type="submit" value="Ingresar">
+                </div>
+            </form>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('login-form', {
+            template: '#loginForm',
+            data: function () {
+                return {
+                    usuario: '',
+                    contrasena: ''
+                }
+            },
+            methods: {
+                enviar: function () {
+                    alert('Usuario: ' + this.usuario + '\nContraseña: ' + this.contrasena);
+                }
+            }
+        });
+
+        new Vue({
+            el: '#aplicacion'
+        });
+    </script>
+</body>
+
+</html>
