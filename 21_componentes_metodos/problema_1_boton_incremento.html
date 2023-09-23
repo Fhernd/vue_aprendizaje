@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21. Problema 1 - Componentes con Métodos</title>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <boton-incremento></boton-incremento>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+        Vue.component('boton-incremento', {
+            props: ['valor'],
+            template: `<div>
+                <button v-on:click="incrementar()">{{valor}}</button>
+            </div>`,
+            data: function () {
+                return {
+                    valor: 0
+                }
+            },
+            methods: {
+                incrementar: function () {
+                    this.valor++;
+                }
+            }
+        });
+
+        new Vue({
+            el: '#aplicacion'
+        });
+    </script>
+</body>
+
+</html>
