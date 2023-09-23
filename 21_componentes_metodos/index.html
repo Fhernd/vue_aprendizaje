@@ -17,23 +17,23 @@
 
         Vue.component('selector-numerico', {
             props: ['valor', 'minimo', 'maximo'],
-            template: `<div><span style="width:1rem;display:inline-block;background:#ff0">{{cant}}</span>
+            template: `<div><span style="width:1rem;display:inline-block;background:#ff0">{{cantidad}}</span>
                  <button v-on:click="incrementar()">+</button>
                  <button v-on:click="decrementar()">-</button>
                </div>`,
             data: function () {
                 return {
-                    cant: this.valor
+                    cantidad: this.valor
                 }
             },
             methods: {
                 incrementar: function () {
-                    if (this.cant < this.maximo)
-                        this.cant++;
+                    if (this.cantidad < this.maximo)
+                        this.cantidad++;
                 },
                 decrementar: function () {
-                    if (this.cant > this.minimo)
-                        this.cant--;
+                    if (this.cantidad > this.minimo)
+                        this.cantidad--;
                 }
             }
         })
