@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <selector-numerico v-on:incremento="sumar(1)" v-on:decremento="sumar(-1)" v-bind:valor="0" v-bind:minimo="0"
+            v-bind:maximo="20"></selector-numerico>
+        <selector-numerico v-on:incremento="sumar(1)" v-on:decremento="sumar(-1)" v-bind:valor="0" v-bind:minimo="0"
+            v-bind:maximo="20"></selector-numerico>
+        <selector-numerico v-on:incremento="sumar(1)" v-on:decremento="sumar(-1)" v-bind:valor="0" v-bind:minimo="0"
+            v-bind:maximo="20"></selector-numerico>
+        <p>La suma es:{{suma}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+    
+    <script>
+
+        Vue.component('selector-numerico', {
+            props: ['valor', 'minimo', 'maximo'],
+            template: `<div><span style="width:1rem;display:inline-block;background:#ff0">{{cant}}</span>
+                 <button v-on:click="incrementar()">+</button>
+                 <button v-on:click="decrementar()">-</button>
+               </div>`,
+            data: function () {
+                return {
+                    cant: this.valor
+                }
+            },
+            methods: {
+                incrementar: function () {
+                    if (this.cant < this.maximo) {
+                        this.cant++;
+                        this.$emit('incremento');
+                    }
+                },
+                decrementar: function () {
+                    if (this.cant > this.minimo) {
+                        this.cant--;
+                        this.$emit('decremento');
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: '#aplicacion',
+            data: {
+                suma: 0
+            },
+            methods: {
+                sumar: function (valor) {
+                    this.suma += valor
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
