@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <listado-articulos v-bind:articulos="articulos"></listado-articulos>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+
+        Vue.component('listado-articulos', {
+            props: ['articulos'],
+            template: `<div>
+                 <item-articulo v-for="art in articulos" v-bind:articulo="art"></item-articulo>
+               </div>`
+        })
+
+        Vue.component('item-articulo', {
+            props: ['articulo'],
+            template: `<div>
+                 <p>Código:{{articulo.codigo}}</p>
+                 <p>Descripción:{{articulo.descripcion}}</p>
+                 <p>Precio:{{articulo.precio}}</p><hr>
+               </div>`
+        })
+
+
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                articulos: [{
+                    codigo: 1,
+                    descripcion: 'papas',
+                    precio: 12.52
+                }, {
+                    codigo: 2,
+                    descripcion: 'naranjas',
+                    precio: 21
+                }, {
+                    codigo: 3,
+                    descripcion: 'peras',
+                    precio: 18.20
+                }]
+
+            }
+        })
+    </script>
+</body>
+
+</html>
