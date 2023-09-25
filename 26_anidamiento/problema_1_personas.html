@@ -22,7 +22,7 @@
                 <p v-for="persona in personas">
                     Nombre: {{persona.name.first}}<br>
                     Apellido: {{persona.name.last}}<br>
-                    <foto-persona v-bind:imagen="persona.picture.medium"></foto-persona>
+                    <foto-persona v-bind:imagen="persona.picture.large"></foto-persona>
                 </p>
             </div>`
         });
@@ -33,11 +33,13 @@
         });
 
         const app = new Vue({
+            el: '#aplicacion',
             data: {
                 personas: []
             },
             created: function () {
-                this.$http.get('https://randomuser.me/api/?results=2').then(function (respuesta) {
+                this.$http.get('https://randomuser.me/api/?results=10').then(function (respuesta) {
+                    console.log(respuesta);
                     this.personas = respuesta.body.results;
                 })
             },
