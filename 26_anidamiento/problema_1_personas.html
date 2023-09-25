@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26. Problema 1 - Anidamiento</title>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <personas v-bind:personas="personas"></personas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+
+    <script>
+        Vue.component('personas', {
+            props: ['personas'],
+            template: `<div>
+                <p v-for="persona in personas">
+                    Nombre: {{persona.name.first}}<br>
+                    Apellido: {{persona.name.last}}<br>
+                    <foto-persona v-bind:imagen="persona.picture.medium"></foto-persona>
+                </p>
+            </div>`
+        });
+
+        Vue.component('foto-persona', {
+            props: ['imagen'],
+            template: `<img v-bind:src="imagen">`
+        });
+
+        const app = new Vue({
+            data: {
+                personas: []
+            },
+            created: function () {
+                this.$http.get('https://randomuser.me/api/?results=2').then(function (respuesta) {
+                    this.personas = respuesta.body.results;
+                })
+            },
+        })
+    </script>
+</body>
+
+</html>
