@@ -10,7 +10,9 @@
 </template>
 
 <script>
+
 import CartaPoker from './components/CartaPoker.vue'
+
 export default {
   components: {
     'carta-poker': CartaPoker
@@ -18,7 +20,7 @@ export default {
   name: 'app',
   data() {
     return {
-      mensaje: 'Mi primer componente'
+      mensaje: 'Mi Juego de Cartas'
     }
   }
 }
