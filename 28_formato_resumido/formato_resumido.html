@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <a :href="buscador">{{nombreBuscador}}</a>
+        <hr>
+        <button @click="ir()">Entrar a google</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+
+
+        new Vue({
+            el: '#aplicacion',
+            data: {
+                buscador: 'https://www.google.com',
+                nombreBuscador: 'Google',
+                contador: 0
+            },
+            methods: {
+                ir: function () {
+                    window.location.href = this.buscador;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
