@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Prueba Vue</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <div id="aplicacion">
+        <button v-on:click="componenteActual='articulos'">Ver artículos</button>
+        <button v-on:click="componenteActual='proveedores'">Ver proveedores</button>
+        <component v-bind:is="componenteActual"></component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x.x/dist/vue.js"></script>
+
+    <script>
+
+        Vue.component('articulos', {
+            template: `<div>
+                 <table border="1">
+                 <tr><td>Código</td><td>Descripción</td><td>Precio</td></tr>
+                 <tr v-for="art in articulos"><td>{{art.codigo}}</td><td>{{art.descripcion}}</td><td>{{art.precio}}</td></tr>
+                 </table>
+               </div>`,
+            data: function () {
+                return {
+                    articulos: [{
+                        codigo: 1,
+                        descripcion: 'papas',
+                        precio: 12.52
+                    }, {
+                        codigo: 2,
+                        descripcion: 'naranjas',
+                        precio: 21
+                    }, {
+                        codigo: 3,
+                        descripcion: 'peras',
+                        precio: 18.20
+                    }]
+                }
+            }
+        })
+
+        Vue.component('proveedores', {
+            template: `<div>
+                 <table border="1">
+                 <tr><td>Nombre</td><td>Dirección</tr>
+                 <tr v-for="prov in proveedores"><td>{{prov.nombre}}</td><td>{{prov.direccion}}</td></tr>
+                 </table>
+               </div>`,
+            data: function () {
+                return {
+                    proveedores: [{
+                        nombre: 'Martinez, luis',
+                        direccion: 'Colon 123'
+                    }, {
+                        nombre: 'Rodriguez, ana',
+                        direccion: 'Pringles 534'
+                    }]
+                }
+            }
+        })
+
+
+        var app = new Vue({
+            el: '#aplicacion',
+            data: {
+                componenteActual: 'articulos',
+            }
+        })
+    </script>
+</body>
+
+</html>
