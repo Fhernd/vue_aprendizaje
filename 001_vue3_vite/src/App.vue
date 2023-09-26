@@ -14,7 +14,7 @@ import GreetingMessage from './components/GreetingMessage.vue'
   </div>
   <HelloWorld msg="Vite + Vue" />
   <br>
-  <GreetingMessage />
+  <GreetingMessage username="John Ortiz Ordoñez"></GreetingMessage>
 </template>
 
 <style scoped>

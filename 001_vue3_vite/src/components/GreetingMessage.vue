@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 
-const name = ref('John')
+defineProps<{ username: string }>()
+
 </script>
 
 <template>
-    <span>My name is {{ name }}</span>
+    <span>My name is {{ username }}</span>
 </template>
