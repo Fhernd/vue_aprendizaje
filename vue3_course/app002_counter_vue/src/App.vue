@@ -11,8 +11,8 @@
         The current count is...
       </h4>
       <h1>{{ count }}</h1>
-      <button>-</button>
-      <button>+</button>
+      <button @click="count--">-</button>
+      <button @click="count++">+</button>
     </div>
   </main>
 </template>
