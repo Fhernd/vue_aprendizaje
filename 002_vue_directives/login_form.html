@@ -34,8 +34,9 @@
             template: `
                 <h2>{{title}}</h2>
                 <form @submit.prevent="handleSubmit">
-                    <custom-input v-model="email" placeholder="Email" v-bind:label="emailLabel"/>
-                    <custom-input v-model="password" placeholder="Pasword" v-bind:label="passwordLabel"/>
+                    
+                    <custom-input :type='input.type' v-for="input in inputs" :label="input.label" v-model="input.value"></custom-input>
+                    
                     <button type="submit">Login</button>
                 </form>
             `,
@@ -46,7 +47,19 @@
                     email: 'asdfad@gmasd.com',
                     password: '',
                     emailLabel: 'Email',
-                    passwordLabel: 'Password'
+                    passwordLabel: 'Password',
+                    inputs: [
+                        {
+                            'label': 'Email',
+                            'value': '',
+                            'type': 'email'
+                        },
+                        {
+                            'label': 'Password',
+                            'value': '',
+                            'type': 'password'
+                        }
+                    ]
                 }
             },
             methods: {
@@ -59,11 +72,11 @@
         });
 
         app.component('custom-input', {
-            props: ['label', 'modelValue'],
+            props: ['label', 'type', 'modelValue'],
             template: `
                 <label>
                     {{label}}
-                    <input type="text" v-model="inputValue">
+                    <input :type="type" v-model="inputValue">
                 </label>
             `,
             computed: {
