@@ -34,8 +34,8 @@
             template: `
                 <h2>{{title}}</h2>
                 <form @submit.prevent="handleSubmit">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Pasword">
+                    <input type="email" placeholder="Email" v-model="email">
+                    <input type="password" placeholder="Pasword" v-model="password">
                     <button type="submit">Login</button>
                 </form>
             `,
@@ -49,6 +49,8 @@
             methods: {
                 handleSubmit() {
                     console.log('Form submitted');
+                    console.log(this.email);
+                    console.log(this.password);
                 }
             }
         });
