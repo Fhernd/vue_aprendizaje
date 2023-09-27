@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Lifecycle</title>
+
+    <style>
+        .box {
+            width: 3%;
+            height: 300px;
+            background-color: red;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="aplicacion">
+        <button @click="toggleBox">Toggle box</button>
+
+        <test-box v-if="isVisible"></test-box>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    isVisible: true
+                }
+            },
+            methods: {
+                toggleBox() {
+                    this.isVisible = !this.isVisible;
+                }
+            }
+        });
+
+        app.component('test-box', {
+            template: `
+                <div class="box">
+                    <h1>Box</h1>
+                </div>
+            `,
+            beforeCreate() {
+                console.log('beforeCreate');
+            },
+            created() {
+                console.log('created');
+            },
+            beforeMount() {
+                console.log('beforeMount');
+            },
+            mounted() {
+                console.log('mounted');
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+            },
+            updated() {
+                console.log('updated');
+            },
+            beforeUnmount() {
+                console.log('beforeUnmount');
+            },
+            unmounted() {
+                console.log('unmounted');
+            }
+        });
+
+        app.mount('#aplicacion');
+    </script>
+</body>
+</html>
