@@ -32,12 +32,25 @@
 
         app.component('login-form', {
             template: `
-                <form>
+                <h2>{{title}}</h2>
+                <form @submit.prevent="handleSubmit">
                     <input type="email" placeholder="Email">
                     <input type="password" placeholder="Pasword">
-                    <button>Login</button>
+                    <button type="submit">Login</button>
                 </form>
-            `
+            `,
+            data() {
+                return {
+                    title: 'Login Form',
+                    email: '',
+                    password: ''
+                }
+            },
+            methods: {
+                handleSubmit() {
+                    console.log('Form submitted');
+                }
+            }
         });
 
         app.mount('#aplicacion');
