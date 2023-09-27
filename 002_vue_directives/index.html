@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Directives</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +23,9 @@
 
         <hr>
 
+        <div class="box" v-show="isVisible">
 
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>
@@ -24,7 +34,8 @@
         let app = Vue.createApp({
             data() {
                 return {
-                    greeting: 'Hello World'
+                    greeting: 'Hello World',
+                    isVisible: false
                 }
             }
         });
