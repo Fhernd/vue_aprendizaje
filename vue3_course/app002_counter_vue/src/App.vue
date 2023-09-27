@@ -1,19 +1,32 @@
 <template>
   <main>
-    <h4>
-      The current count is...
-    </h4>
-    <h1>0</h1>
-    <button>-</button>
-    <button>+</button>
+    <div>
+      <h4>
+        The current count is...
+      </h4>
+      <h1>0</h1>
+      <button>-</button>
+      <button>+</button>
+    </div>
   </main>
 </template>
 
 <style scoped>
-  main {
-    background-color: aliceblue;
-    height: 100vh;
-    widows: 100vw;
-    display: flex;
-  }
+body {
+  background-color: aliceblue;
+}
+
+main {
+  background-color: aliceblue;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div {
+  text-align: center;
+}
+
 </style>
