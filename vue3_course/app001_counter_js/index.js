@@ -6,4 +6,9 @@ window.onload = function () {
         const counter = document.getElementById('count');
         counter.innerText = parseInt(counter.innerText) + 1;
     });
+
+    btnSub.addEventListener('click', function () {
+        const counter = document.getElementById('count');
+        counter.innerText = parseInt(counter.innerText) - 1;
+    });
 }
