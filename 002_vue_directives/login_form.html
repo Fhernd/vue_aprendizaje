@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login <Form></Form>
+    </title>
+</head>
+
+<body>
+    <div id="aplicacion">
+        <custom-form>
+
+        </custom-form>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    greeting: 'Hello World',
+                    isVisible: false
+                }
+            }
+        });
+
+        app.component('login-form', {
+            template: `
+                <form>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Pasword">
+                    <button>Login</button>
+                </form>
+            `
+        });
+
+        app.mount('#aplicacion');
+    </script>
+</body>
+
+</html>
