@@ -88,4 +88,5 @@ h3 {
 
 .project.complete .tick {
     color: green;
-}</style>
+}
+</style>
