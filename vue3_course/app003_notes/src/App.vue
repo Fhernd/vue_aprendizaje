@@ -7,8 +7,12 @@
       </header>
       <div class="cards-container">
         <div class="card">
-          <p class="main-text"></p>
-          <p class="date"></p>
+          <p class="main-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+          <p class="date">04/27/2666</p>
+        </div>
+        <div class="card">
+          <p class="main-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+          <p class="date">04/27/2666</p>
         </div>
       </div>
     </div>
@@ -63,4 +67,15 @@ button {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+
+.date {
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 </style>
