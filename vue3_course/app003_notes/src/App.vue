@@ -1,5 +1,8 @@
 <template>
   <main>
+    <div class="overlay">
+
+    </div>
     <div class="container">
       <header>
         <h1>Notes</h1>
@@ -78,4 +81,14 @@ button {
   flex-wrap: wrap;
 }
 
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.77);
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
