@@ -32,5 +32,67 @@ export default {
             .catch(err => console.log(err.message))
             ;
     },
+    methods: {
+        editProjectSubmit() {
+            fetch(this.url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: this.title,
+                    details: this.details
+                })
+            }).then(() => {
+                this.$router.push({ name: 'HomePage' });
+            }).catch(err => console.log(err.message));
+        }
+    }
 }
 </script>
+
+<style>
+form {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    color: #bbb;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0 10px 0;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    padding: 10px;
+    border: 2px solid #ddd;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+form button {
+    display: block;
+    margin: 20px auto 0;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+</style>
