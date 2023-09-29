@@ -14,3 +14,22 @@
     </div>
   </main>
 </template>
+
+<style scoped>
+  main {
+    height: 100hv;
+    width: 100vw;
+  }
+
+  .container {
+    max-width: 1000px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
