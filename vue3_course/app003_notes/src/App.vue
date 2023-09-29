@@ -32,4 +32,22 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  h1 {
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 75px;
+  }
+
+  button {
+    border: none;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(21, 20, 20);
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+  }
 </style>
