@@ -1,5 +1,5 @@
 <template>
-    <form @submi.prevent="projectSubmit">
+    <form @submit.prevent="projectSubmit">
         <label>Title:</label>
         <br>
         <input type="text" v-model="title" required>
@@ -33,7 +33,7 @@ export default {
                     complete: false
                 })
             }).then(() => {
-                this.$router.push({ name: 'HomePage' });
+                this.$router.push('/homePage');
             }).catch(err => console.log(err.message))
                 ;
         }

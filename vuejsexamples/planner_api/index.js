@@ -39,7 +39,7 @@ app.get('/projects', (req, res) => res.json(projects));
 
 app.post('/projects', (req, res) => {
   const newProject = req.body;
-
+  
   // Find the next id:
   const ids = projects.map(project => project.id);
   const maxId = Math.max(...ids);
