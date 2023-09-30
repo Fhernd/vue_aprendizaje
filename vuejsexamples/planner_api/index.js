@@ -43,7 +43,7 @@ app.post('/projects', (req, res) => {
   res.status(201).json(newProject);
 });
 
-app.put('/projects/:id', (req, res) => {
+app.patch('/projects/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = projects.findIndex(project => project.id === id);
 
@@ -61,6 +61,15 @@ app.delete('/projects/:id', (req, res) => {
 
   const deleted = projects.splice(index, 1);
   res.json(deleted[0]);
+});
+
+app.get('/projects/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const project = projects.find(project => project.id === id);
+
+  if (!project) return res.status(404).send('No encontrado');
+
+  res.json(project);
 });
 
 // Iniciar el Servidor
