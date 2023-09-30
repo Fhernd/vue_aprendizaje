@@ -39,6 +39,11 @@ app.get('/projects', (req, res) => res.json(projects));
 
 app.post('/projects', (req, res) => {
   const newProject = req.body;
+
+  // Find the next id:
+  const ids = projects.map(project => project.id);
+  const maxId = Math.max(...ids);
+  newProject.id = maxId + 1;
   projects.push(newProject);
   res.status(201).json(newProject);
 });
@@ -48,6 +53,8 @@ app.patch('/projects/:id', (req, res) => {
   const index = projects.findIndex(project => project.id === id);
 
   if (index === -1) return res.status(404).send('No encontrado');
+
+  req.body.id = id;
 
   projects[index] = req.body;
   res.json(projects[index]);
