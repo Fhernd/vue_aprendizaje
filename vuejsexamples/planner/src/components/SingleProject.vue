@@ -35,12 +35,18 @@ export default {
             });
         },
         projectComplete() {
+            const updatedProject = {
+                id: this.project.id,
+                title: this.project.title,
+                details: this.project.details,
+                complete: !this.project.complete
+            }
             fetch(this.urlThis, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ complete: !this.project.complete })
+                body: JSON.stringify(updatedProject)
             }).then(() => {
                 this.$emit('complete', this.project.id);
             }).catch(err => console.log(err.name))
