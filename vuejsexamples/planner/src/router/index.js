@@ -15,7 +15,7 @@ const routes = [
         component: AddProject
     },
     {
-        paht: '/editProject/:id',
+        path: '/editProject/:id',
         name: 'EditProject',
         component: EditProject,
         props: true
