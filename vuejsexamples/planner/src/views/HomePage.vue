@@ -8,7 +8,6 @@
                     @delete="deleteMethod"
                     @complete="completeMethod"
                 ></SingleProject>
-                <NavBar />
             </div>
         </div>
     </div>
