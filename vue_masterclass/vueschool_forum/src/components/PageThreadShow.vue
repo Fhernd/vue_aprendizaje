@@ -30,7 +30,6 @@
 
 <script>
 import sourceData from '@/data.json'
-console.log(sourceData);
 
 export default {
     data() {
@@ -41,8 +40,16 @@ export default {
         }
     },
     computed: {
-        thread() { 
+        thread() {
             return this.threads.find(t => t.id == this.$route.params.id)
+        }
+    },
+    methods: {
+        postById(id) {
+            return this.posts.find(p => p.id == id)
+        },
+        userById(id) {
+            return this.users.find(u => u.id == id)
         }
     }
 }
