@@ -13,7 +13,7 @@ const routes = [
         component: PageHome
     },
     {
-        path: '/thread',
+        path: '/thread/:id',
         name: 'ThreadShow',
         component: PageThreadShow
     }
