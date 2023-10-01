@@ -29,8 +29,21 @@
 </template>
 
 <script>
+import sourceData from '@/data.json'
+
 export default {
-     
+    data() {
+        return {
+            threads: sourceData.threads,
+            posts: sourceData.posts,
+            users: sourceData.users
+        }
+    },
+    computed: {
+        thread() { 
+            return this.threads.find(t => t.id == this.$route.params.id)
+        }
+    }
 }
 </script>
 
