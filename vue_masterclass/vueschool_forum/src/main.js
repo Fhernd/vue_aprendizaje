@@ -15,7 +15,8 @@ const routes = [
     {
         path: '/thread/:id',
         name: 'ThreadShow',
-        component: PageThreadShow
+        component: PageThreadShow,
+        props: true
     }
 ]
 

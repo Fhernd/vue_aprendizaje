@@ -32,6 +32,12 @@
 import sourceData from '@/data.json'
 
 export default {
+    props: {
+        id: {
+            type: Number,
+            required: true
+        }
+    },
     data() {
         return {
             threads: sourceData.threads,
@@ -41,7 +47,7 @@ export default {
     },
     computed: {
         thread() {
-            return this.threads.find(t => t.id == this.$route.params.id)
+            return this.threads.find(t => t.id == this.id)
         }
     },
     methods: {
