@@ -17,17 +17,17 @@
                     <p class="replies-count">
                         {{ thread.posts.length }}
                     </p>
-                </div>
 
-                <img :src="userById(thread.userId).avatar" class="avatar-medium">
+                    <img :src="userById(thread.userId).avatar" class="avatar-medium">
 
-                <div>
-                    <p class="text-xsmall">
-                        <a href="#">{{ userById(thread.userId).name }}</a>
-                    </p>
-                    <p class="text-xsmall">
-                        {{ thread.publishedAt }}
-                    </p>
+                    <div>
+                        <p class="text-xsmall">
+                            <a href="#">{{ userById(thread.userId).name }}</a>
+                        </p>
+                        <p class="text-xsmall">
+                            {{ thread.publishedAt }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
