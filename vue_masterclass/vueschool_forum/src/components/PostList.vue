@@ -4,7 +4,7 @@
             <a href="#" class="user-name">{{ userById(post.userId).name }}</a>
 
             <a href="#">
-                <img :src="userById(post.userId).userId).avatar" alt="Avatar" class="avatar-large">
+                <img :src="userById(post.userId).avatar" alt="Avatar" class="avatar-large">
             </a>
 
             <p class="desktop-only text-small">100 posts</p>
@@ -29,7 +29,7 @@ import sourceData from '@/data.json'
 
 export default {
     props: {
-        thread: {
+        posts: {
             type: Array,
             required: true
         }

@@ -7,10 +7,15 @@
 </template>
 
 <script>
+import PostList from '@/components/PostList.vue'
+
 import sourceData from '@/data.json'
 
 export default {
     name: 'ThreadShow',
+    components: {
+        PostList
+    },
     props: {
         id: {
             type: Number,
