@@ -27,8 +27,8 @@
         </div>
     </div>
     <div v-else class="col-full text-center">
-        <h1>Not Found</h1>
-        <router-link :to="{name: 'Home'}">Thread not found</router-link>
+        <h1>This thread does not exit</h1>
+        <router-link :to="{name: 'Home'}">Read other threads</router-link>
     </div>
 </template>
 
