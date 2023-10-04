@@ -23,7 +23,10 @@ const routes = [
             if (threadExist) {
                 return next();
             } else {
-                next({ name: 'NotFound' });
+                next({ 
+                    name: 'NotFound',
+                    params: { pathMatch: to.path.substring(1).split('/') },
+                });
             }
         }
     },
