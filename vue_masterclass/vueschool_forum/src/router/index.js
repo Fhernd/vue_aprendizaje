@@ -14,6 +14,11 @@ const routes = [
         name: 'ThreadShow',
         component: PageThreadShow,
         props: true
+    },
+    {
+        path: '/:patchMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound
     }
 ]
 
