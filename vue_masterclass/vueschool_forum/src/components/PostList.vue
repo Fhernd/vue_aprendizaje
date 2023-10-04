@@ -13,13 +13,13 @@
         <div class="post-content">
             <div>
                 <p>
-                    {{ postById(postId).text }}
+                    {{ post.text }}
                 </p>
             </div>
         </div>
 
         <div class="post-date text-faded">
-            <p>Posted on {{ postById(postId).publishedAt }}</p>
+            <p>Posted on {{ post.publishedAt }}</p>
         </div>
     </div>
 </template>
