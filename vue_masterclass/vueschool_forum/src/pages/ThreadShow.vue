@@ -2,6 +2,8 @@
     <div class="col-large push-top">
         <h1>{{ thread.title }}</h1>
 
+        <post-list @posts="threadPosts" />
+
         <div class="post" v-for="postId in thread.posts" :key="postId">
             <div class="user-info">
                 <a href="#" class="user-name">{{ userById(postById(postId).userId).name }}</a>
@@ -32,6 +34,7 @@
 import sourceData from '@/data.json'
 
 export default {
+    name: 'ThreadShow',
     props: {
         id: {
             type: Number,
@@ -48,6 +51,9 @@ export default {
     computed: {
         thread() {
             return this.threads.find(t => t.id == this.id)
+        },
+        threadPosts() {
+            return this.posts.filter(p => p.threadId == this.id)
         }
     },
     methods: {
