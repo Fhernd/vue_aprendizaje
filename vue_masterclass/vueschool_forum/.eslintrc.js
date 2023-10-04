@@ -11,6 +11,7 @@ module.exports = {
         parser: 'babel-eslint'
     },
     rules: {
-        'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn'
+        'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+        'vue/multi-word-component-names': 'off',
     }
 }
