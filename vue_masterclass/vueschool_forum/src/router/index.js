@@ -4,6 +4,8 @@ import PageHome from '@/components/PageHome.vue'
 import PageThreadShow from '@/components/PageThreadShow.vue'
 import NotFound from '@/components/NotFound.vue'
 
+import sourceData from '@/data.json'
+
 const routes = [
     {
         path: '/',
@@ -14,7 +16,16 @@ const routes = [
         path: '/thread/show/:id',
         name: 'ThreadShow',
         component: PageThreadShow,
-        props: true
+        props: true,
+        beforeEnter: (to, from, next) => {
+            const threadExist = sourceData.threads.find(thread => thread.id === to.params.id);
+
+            if (threadExist) {
+                return next();
+            } else {
+                next({ name: 'NotFound' });
+            }
+        }
     },
     {
         path: '/:patchMatch(.*)*',
