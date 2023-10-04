@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import PageHome from '@/components/PageHome.vue'
 import PageThreadShow from '@/components/PageThreadShow.vue'
+import NotFound from '@/components/NotFound.vue'
 
 const routes = [
     {
