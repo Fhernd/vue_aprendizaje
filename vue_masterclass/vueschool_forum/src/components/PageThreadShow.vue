@@ -1,5 +1,5 @@
 <template>
-    <div v-if="thread" class="col-large push-top">
+    <div class="col-large push-top">
         <h1>{{ thread.title }}</h1>
 
         <div class="post" v-for="postId in thread.posts" :key="postId">
@@ -25,10 +25,6 @@
                 <p>Posted on {{ postById(postId).publishedAt }}</p>
             </div>
         </div>
-    </div>
-    <div v-else class="col-full text-center">
-        <h1>This thread does not exit</h1>
-        <router-link :to="{name: 'Home'}">Read other threads</router-link>
     </div>
 </template>
 
