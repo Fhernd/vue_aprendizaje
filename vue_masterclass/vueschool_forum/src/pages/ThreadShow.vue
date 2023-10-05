@@ -29,8 +29,7 @@ export default {
     data() {
         return {
             threads: sourceData.threads,
-            posts: sourceData.posts,
-            newPostText: ''
+            posts: sourceData.posts
         }
     },
     computed: {
@@ -50,8 +49,6 @@ export default {
 
             this.posts.push(post)
             this.thread.posts.push(post.id)
-
-            this.newPostText = ''
         }
     },
 }
