@@ -4,7 +4,7 @@
 
         <post-list :posts="threadPosts" />
 
-        <post-editor @save-post="addPost" />
+        <post-editor @save="addPost" />
     </div>
 </template>
 
@@ -57,6 +57,4 @@ export default {
 }
 </script>
 
-<style scoped>
-    
-</style>
+<style scoped></style>

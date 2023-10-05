@@ -1,8 +1,8 @@
 <template>
     <div class="col-full">
-        <form @submit.prevent="addPost" class="form">
+        <form @submit.prevent="save" class="form">
             <div class="form-group">
-                <textarea v-model="newPostText" class="form-input" rows="10" cols="30"></textarea>
+                <textarea v-model="text" class="form-input" rows="10" cols="30"></textarea>
             </div>
             <div class="form-actions">
                 <button class="btn-blue">Submit post</button>
@@ -15,23 +15,23 @@
 export default {
     data() {
         return {
-            newPostText: ''
+            text: ''
         }
     },
     methods: {
-        addPost() {
+        save() {
             const postId = '#' + Math.random().toString(36).substr(2, 9)
 
             const post = {
                 id: postId,
-                text: this.newPostText,
+                text: this.text,
                 publishedAt: Math.floor(Date.now() / 1000),
                 userId: 'rpbB8C6ifrYmNDufMERWfQUoa202'
             }
 
-            this.$emit('save-post', { post })
+            this.$emit('save', { post })
 
-            this.newPostText = ''
+            this.text = ''
         }
     }
 }
