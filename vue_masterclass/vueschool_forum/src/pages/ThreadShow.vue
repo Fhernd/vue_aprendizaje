@@ -5,7 +5,7 @@
         <post-list :posts="threadPosts" />
 
         <div class="col-full">
-            <form>
+            <form @submit.prevent="addPost" class="form">
                 <div class="form-group">
                     <textarea v-model="newPostText" class="form-input" rows="10" cols="30"></textarea>
                 </div>
@@ -47,7 +47,23 @@ export default {
         threadPosts() {
             return this.posts.filter(p => p.threadId == this.id)
         }
-    }
+    },
+    methods: {
+        addPost() {
+            const postId = '#' + Math.random().toString(36).substr(2, 9)
+            
+            const post = {
+                id: postId,
+                text: this.newPostText,
+                publishedAt: Math.floor(Date.now() / 1000),
+                threadId: this.id,
+                userId: 'rpbB8C6ifrYmNDufMERWfQUoa202'
+            }
+
+            sourceData.posts.push(post)
+            this.thread.posts.push(postId)
+        }
+    },
 }
 </script>
 
