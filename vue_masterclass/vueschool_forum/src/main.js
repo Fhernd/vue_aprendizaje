@@ -1,10 +1,19 @@
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import AppDate from '@/components/AppDate.vue'
 import router from '@/router'
 
 const forumApp = createApp(App);
 forumApp.use(router);
-forumApp.component('AppDate', AppDate);
+
+const requireComponent = require.context('./components', true, /App[A-Z]\w+\.(vue|js)$/);
+requireComponent.keys().forEach(fileName => {
+    const componentConfig = requireComponent(fileName);
+    const componentName = fileName
+        .replace(/^.+\//, '')
+        .replace(/\.\w+$/, '');
+
+    forumApp.component(componentName, componentConfig.default || componentConfig);
+});
+
 forumApp.mount('#app');
