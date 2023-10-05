@@ -3,6 +3,17 @@
         <h1>{{ thread.title }}</h1>
 
         <post-list :posts="threadPosts" />
+
+        <div class="col-full">
+            <form>
+                <div class="form-group">
+                    <textarea :value="newPostText" @input="newPostText = $event.target.value" class="form-input" rows="10" cols="30"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-blue">Submit post</button>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -26,6 +37,7 @@ export default {
         return {
             threads: sourceData.threads,
             posts: sourceData.posts,
+            newPostText: ''
         }
     },
     computed: {
