@@ -18,13 +18,15 @@
             </div>
         </div>
 
-        <div class="post-date text-faded" :title="humanFriendlyDate(post.publishedAt)">
-            <p>Posted on {{ diffForHumans(post.publishedAt) }}</p>
+        <div class="post-date text-faded">
+            <p>Posted on <app-date :timestamp="post.publishedAt" /></p>
         </div>
     </div>
 </template>
 
 <script>
+import AppDate from '@/components/AppDate.vue'
+
 import sourceData from '@/data.json'
 
 export default {
@@ -33,6 +35,9 @@ export default {
             type: Array,
             required: true
         }
+    },
+    components: {
+        AppDate
     },
     data() {
         return {
