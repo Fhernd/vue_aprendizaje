@@ -60,8 +60,10 @@ export default {
                 userId: 'rpbB8C6ifrYmNDufMERWfQUoa202'
             }
 
-            sourceData.posts.push(post)
+            this.posts.push(post)
             this.thread.posts.push(postId)
+
+            this.newPostText = ''
         }
     },
 }
