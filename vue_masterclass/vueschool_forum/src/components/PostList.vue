@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="post-date text-faded">
+        <div class="post-date text-faded" :title="humanFriendlyDate(post.publishedAt)">
             <p>Posted on {{ diffForHumans(post.publishedAt) }}</p>
         </div>
     </div>
@@ -27,7 +27,9 @@
 <script>
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(relativeTime)
+dayjs.extend(localizedFormat)
 
 import sourceData from '@/data.json'
 
@@ -49,6 +51,9 @@ export default {
         },
         diffForHumans(timestamp) {
             return dayjs.unix(timestamp).fromNow()
+        },
+        humanFriendlyDate(timestamp) {
+            return dayjs.unix(timestamp).format('llll')
         }
     }
 }
