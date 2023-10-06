@@ -20,6 +20,7 @@ export default {
     },
     computed: {
         category() {
+            console.log(sourceData.categories.find(category => category.id === this.id));
             return sourceData.categories.find(category => category.id === this.id)
         }
     },
