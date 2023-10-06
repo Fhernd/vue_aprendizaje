@@ -13,9 +13,7 @@
                     <p>{{ forum.description }}</p>
                 </div>
                 <div class="threads-count">
-                    <p><span class="count">{{ forum.threads?.length }}</span> {{ forum.threads?.length > 1 ? 'threads' :
-                        'thread'
-                    }}</p>
+                    <p><span class="count">{{ forum.threads?.length }}</span> {{ forumThreadWord(forum) }}</p>
                 </div>
 
                 <div class="last-thread">
@@ -32,6 +30,12 @@ export default {
         forums: {
             type: Array,
             required: true
+        }
+    },
+    methods: {
+        forumThreadWord(forum) {
+            return forum.threads?.length ? forum.threads?.length > 1 ? 'threads' :
+                        'thread' : 'No threads'
         }
     }
 }
