@@ -10,7 +10,7 @@
     </div>
     
     <div class="col-full">
-        <ThreadList />
+        <ThreadList :threads="threads" />
     </div>
 </template>
 

@@ -17,6 +17,7 @@ const routes = [
         path: '/forum/:id',
         name: 'Forum',
         component: Forum,
+        props: true,
     },
     {
         path: '/thread/show/:id',
