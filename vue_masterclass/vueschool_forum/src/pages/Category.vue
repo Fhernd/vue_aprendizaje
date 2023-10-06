@@ -1,4 +1,5 @@
 <template>
+    <h1>{{ category.name }} }}</h1>
     <ForumList :title="category.name" :forums="getForumsForCategory(category)" />
 </template>
 
