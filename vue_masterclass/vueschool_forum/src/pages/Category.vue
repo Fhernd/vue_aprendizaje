@@ -1,11 +1,9 @@
 <template>
-    <ForumList v-for="category in categories" :key="category.id" :forums="getForumsForCategory(category)" :category-name="category.name">
-
-    </ForumList>
+    <ForumList :title="category.name" :forums="getForumsForCategory(category)" />
 </template>
 
 <script>
-import ForumList from './ForumList.vue'
+import ForumList from '@/components/ForumList.vue'
 
 import sourceData from '../data.json'
 
@@ -14,9 +12,14 @@ export default {
         ForumList
     },
     props: {
-        categories: {
-            type: Array,
+        id: {
+            type: Number,
             required: true
+        }
+    },
+    computed: {
+        category() {
+            return sourceData.categories.find(category => category.id === Number(this.id))
         }
     },
     methods: {
