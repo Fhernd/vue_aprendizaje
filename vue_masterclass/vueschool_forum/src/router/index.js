@@ -6,8 +6,6 @@ import Home from '@/pages/Home.vue'
 import ThreadShow from '@/pages/ThreadShow.vue'
 import NotFound from '@/pages/NotFound.vue'
 
-import sourceData from '@/data.json'
-
 const routes = [
     {
         path: '/',
@@ -32,7 +30,7 @@ const routes = [
         component: ThreadShow,
         props: true,
         beforeEnter: (to, from, next) => {
-            const threadExist = sourceData.threads.find(thread => thread.id === to.params.id);
+            const threadExist = this.$store.state.threads.find(thread => thread.id === to.params.id);
 
             if (threadExist) {
                 return next();

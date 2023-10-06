@@ -12,8 +12,6 @@
 import PostEditor from '@/components/PostEditor.vue'
 import PostList from '@/components/PostList.vue'
 
-import sourceData from '@/data.json'
-
 export default {
     name: 'ThreadShow',
     components: {
@@ -28,8 +26,8 @@ export default {
     },
     data() {
         return {
-            threads: sourceData.threads,
-            posts: sourceData.posts
+            threads: this.$store.state.threads,
+            posts: this.$store.state.posts
         }
     },
     computed: {

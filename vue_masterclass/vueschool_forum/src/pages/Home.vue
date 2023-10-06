@@ -6,7 +6,6 @@
 
 <script>
 import CategoryList from '@/components/CategoryList.vue'
-import sourceData from '@/data.json'
 
 export default {
     components: {
