@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ category.name }} }}</h1>
+    <h1>{{ category.name }}</h1>
     <ForumList :title="category.name" :forums="getForumsForCategory(category)" />
 </template>
 
@@ -20,7 +20,7 @@ export default {
     },
     computed: {
         category() {
-            return sourceData.categories.find(category => category.id === Number(this.id))
+            return sourceData.categories.find(category => category.id === this.id)
         }
     },
     methods: {
