@@ -17,9 +17,25 @@
 <script>
 import ThreadList from '@/components/ThreadList.vue'
 
+import sourceData from '@/data.json'
+
 export default {
     components: {
         ThreadList
+    },
+    props: {
+        id: {
+            type: String,
+            required: true
+        }
+    },
+    computed: {
+        forum() {
+            return sourceData.forums.find(f => f.id == this.id)
+        },
+        threads() {
+            return sourceData.threads.filter(t => t.forumId == this.id)
+        }
     }
 }
 </script>
