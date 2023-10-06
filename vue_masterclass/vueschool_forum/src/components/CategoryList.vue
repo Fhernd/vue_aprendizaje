@@ -1,5 +1,5 @@
 <template>
-    <ForumList v-for="category in categories" :key="category.id" :forums="getForumsForCategory(category)" :category-name="category.name">
+    <ForumList v-for="category in categories" :key="category.id" :forums="getForumsForCategory(category)" :title="category.name" :category-id="category.id">
 
     </ForumList>
 </template>
