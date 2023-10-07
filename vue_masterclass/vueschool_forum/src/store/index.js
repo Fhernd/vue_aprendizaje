@@ -6,8 +6,8 @@ export default createStore({
     state: sourceData,
     actions: {
         createPost(context, post) {
-            this.posts.push(post);
-            this.thread.posts.push(post);
+            context.commit('setPost', { post });
+            context.commit('appendPostToThread', { postId: post.id, threadId: post.threadId });
         }
     },
     mutations: {
