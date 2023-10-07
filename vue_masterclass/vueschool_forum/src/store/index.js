@@ -6,12 +6,14 @@ export default createStore({
     state: sourceData,
     actions: {
         createPost(context, post) {
+            post.id = 'greatPost' + Math.random();
+
             context.commit('setPost', { post });
             context.commit('appendPostToThread', { postId: post.id, threadId: post.threadId });
         }
     },
     mutations: {
-        setPosts(state, post) {
+        setPost(state, post) {
             state.posts.push(post);
         },
         appendPostToThread(state, { postId, threadId}) {
