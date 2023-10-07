@@ -43,18 +43,20 @@ export default {
             required: true
         }
     },
-    data() {
-        return {
-            posts: this.$store.state.posts,
-            users: this.$store.state.users
-        }
-    },
     methods: {
         postById(id) {
             return this.posts.find(p => p.id == id)
         },
         userById(id) {
             return this.users.find(u => u.id == id)
+        },
+    },
+    computed: {
+        posts() {
+            return this.$store.state.posts
+        },
+        users() {
+            return this.$store.state.users
         }
     }
 }

@@ -24,18 +24,18 @@ export default {
             required: true
         }
     },
-    data() {
-        return {
-            threads: this.$store.state.threads,
-            posts: this.$store.state.posts
-        }
-    },
     computed: {
         thread() {
             return this.threads.find(t => t.id == this.id)
         },
         threadPosts() {
             return this.posts.filter(p => p.threadId == this.id)
+        },
+        threads() {
+            return this.$store.state.threads
+        },
+        posts() {
+            return this.$store.state.posts
         }
     },
     methods: {
