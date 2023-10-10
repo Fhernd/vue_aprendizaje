@@ -14,7 +14,7 @@
             <ul>
                 <li class="navbar-user">
                     <a href="#">
-                        <img src="../assets/svg/arrow-profile.svg" alt="User">
+                        <img src="https://pbs.twimg.com/profile_images/1188775562657091594/5mgkg44t_400x400.jpg" alt="User" class="avatar-small">
                         <span>
                             John Ortiz Ordoñez
                             <img src="../assets/svg/arrow-profile.svg" alt="User    " class="icon-profile">
