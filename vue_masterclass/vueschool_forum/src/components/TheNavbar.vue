@@ -1,6 +1,6 @@
 <template>
-     <header class="header" id="header">
-        <router-link :to="{name: 'Home'}" class="logo">
+    <header class="header" id="header">
+        <router-link :to="{ name: 'Home' }" class="logo">
             <img src="../assets/svg/vueschool-logo.svg" alt="Logo">
         </router-link>
 
@@ -14,9 +14,9 @@
             <ul>
                 <li class="navbar-user">
                     <a href="#">
-                        <img src="https://pbs.twimg.com/profile_images/1188775562657091594/5mgkg44t_400x400.jpg" alt="User" class="avatar-small">
+                        <img :src="authUser.avatar" :alt="`{authUser.name} profile picture`" class="avatar-small"/>
                         <span>
-                            John Ortiz Ordoñez
+                            {{ authUser.name }}
                             <img src="../assets/svg/arrow-profile.svg" alt="User    " class="icon-profile">
                         </span>
                     </a>
@@ -31,12 +31,16 @@
                 </li>
             </ul>
         </nav>
-     </header>
+    </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-    
+    computed: {
+        ...mapGetters(['authUser'])
+    },
 }
 </script>
 
