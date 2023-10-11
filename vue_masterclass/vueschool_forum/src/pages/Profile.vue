@@ -2,6 +2,8 @@
     <div class="container">
         <div class="flex-grid">
             <div class="col-3 push-top">
+                <UserProfileCard :user="user" />
+                
                 <p class="text-xsmall text-faced text-center">
                     Member since june 2003, last visited 4 hours ago
                 </p>
@@ -30,10 +32,12 @@
 import { mapGetters } from 'vuex'
 
 import PostList from '@/components/PostList'
+import UserProfileCard from '@/components/UserProfileCard'
 
 export default {
     components: {
-        PostList
+        PostList,
+        UserProfileCard
     },
     computed: {
         ...mapGetters({ user: 'authUser' })

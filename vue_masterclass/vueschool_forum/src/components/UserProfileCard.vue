@@ -28,18 +28,7 @@
 <script>
 export default {
     computed: {
-        userPosts() {
-            return this.$store.state.posts.filter(post => post.userId === this.user.id)
-        },
-        userPostsCount() {
-            return this.userPosts.length
-        },
-        userThreads() {
-            return this.$store.state.threads.filter(thread => thread.userId === this.user.id)
-        },
-        userThreadsCount() {
-            return this.userThreads.length
-        }
+        
     },
     props: {
         user: {
