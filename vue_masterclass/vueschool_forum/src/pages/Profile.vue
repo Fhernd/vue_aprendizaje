@@ -62,6 +62,12 @@ export default {
     },
     computed: {
         ...mapGetters({user: 'authUser'}),
+        userPosts () {
+            return this.$store.state.posts.filter(post => post.userId === this.user.id)
+        },
+        userPostsCount () {
+            return this.userPosts.length
+        },
     }
 }
 </script>
