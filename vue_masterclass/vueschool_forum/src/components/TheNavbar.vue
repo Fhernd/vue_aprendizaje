@@ -13,13 +13,13 @@
         <nav class="navbar">
             <ul>
                 <li class="navbar-user">
-                    <a href="#">
-                        <img :src="authUser.avatar" :alt="`{authUser.name} profile picture`" class="avatar-small"/>
+                    <router-link :to="{ name: 'Profile' }">
+                        <img :src="authUser.avatar" :alt="`{authUser.name} profile picture`" class="avatar-small" />
                         <span>
                             {{ authUser.name }}
                             <img src="../assets/svg/arrow-profile.svg" alt="User    " class="icon-profile">
                         </span>
-                    </a>
+                    </router-link>
 
                     <div id="user-dropdown">
                         <div class="triangle-menu"></div>
