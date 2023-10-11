@@ -38,15 +38,15 @@
             </div>
 
             <div class="col-7 push-top">
-                <span class="text-lead">
-                    Joker's recent activity
-                </span>
-                <a href="#">See only started threads?</a>
+                <div class="profile-header">
+                    <span class="text-lead">
+                        Joker's recent activity
+                    </span>
+                    <a href="#">See only started threads?</a>
+                </div>
+                <hr>
+                <PostList :posts="userPosts" />
             </div>
-
-            <hr>
-
-            <PostList :posts="userPosts" />
         </div>
     </div>
 </template>
@@ -61,24 +61,20 @@ export default {
         PostList
     },
     computed: {
-        ...mapGetters({user: 'authUser'}),
-        userPosts () {
-            console.log(this.user);
+        ...mapGetters({ user: 'authUser' }),
+        userPosts() {
             return this.$store.state.posts.filter(post => post.userId === this.user.id)
         },
-        userPostsCount () {
+        userPostsCount() {
             return this.userPosts.length
         },
-        userThreads () {
+        userThreads() {
             return this.$store.state.threads.filter(thread => thread.userId === this.user.id)
         },
-        userThreadsCount () {
+        userThreadsCount() {
             return this.userThreads.length
         }
     }
 }
 </script>
-<style>
-
-    
-</style>
+<style></style>
