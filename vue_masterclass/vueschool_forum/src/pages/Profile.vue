@@ -68,6 +68,12 @@ export default {
         userPostsCount () {
             return this.userPosts.length
         },
+        userThreads () {
+            return this.$store.state.threads.filter(thread => thread.userId === this.user.id)
+        },
+        userThreadsCount () {
+            return this.userThreads.length
+        }
     }
 }
 </script>
