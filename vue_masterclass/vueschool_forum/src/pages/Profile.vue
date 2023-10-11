@@ -52,8 +52,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
+import PostLists from '@/components/PostLists'
+
 export default {
-    
+    components: {
+        PostLists
+    },
+    computed: {
+        ...mapGetters({user: 'authUser'}),
+    }
 }
 </script>
 <style>
