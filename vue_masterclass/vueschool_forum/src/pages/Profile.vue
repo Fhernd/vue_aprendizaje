@@ -15,7 +15,7 @@
                         {{ user.bio || 'No bio specified' }}
                     </p>
 
-                    <span class="online">{{ usern.username }} is online</span>
+                    <span class="online">{{ user.username }} is online</span>
 
                     <div class="stats">
                         <span>{{ userPostsCount }} posts</span>
@@ -46,7 +46,7 @@
 
             <hr>
 
-            <PostLists :posts="userPosts" />
+            <PostList :posts="userPosts" />
         </div>
     </div>
 </template>
@@ -63,6 +63,7 @@ export default {
     computed: {
         ...mapGetters({user: 'authUser'}),
         userPosts () {
+            console.log(this.user);
             return this.$store.state.posts.filter(post => post.userId === this.user.id)
         },
         userPostsCount () {
