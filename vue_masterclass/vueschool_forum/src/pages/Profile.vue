@@ -54,11 +54,11 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import PostLists from '@/components/PostLists'
+import PostList from '@/components/PostList'
 
 export default {
     components: {
-        PostLists
+        PostList
     },
     computed: {
         ...mapGetters({user: 'authUser'}),
