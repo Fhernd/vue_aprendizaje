@@ -3,6 +3,7 @@
         <div class="flex-grid">
             <div class="col-3 push-top">
                 <UserProfileCard :user="user" />
+                <UserProfileCardEditor :user="user" />
                 
                 <p class="text-xsmall text-faced text-center">
                     Member since june 2003, last visited 4 hours ago
@@ -33,11 +34,13 @@ import { mapGetters } from 'vuex'
 
 import PostList from '@/components/PostList'
 import UserProfileCard from '@/components/UserProfileCard'
+import UserProfileCardEditor from '@/components/UserProfileCardEditor.vue'
 
 export default {
     components: {
         PostList,
-        UserProfileCard
+        UserProfileCard,
+        UserProfileCardEditor
     },
     computed: {
         ...mapGetters({ user: 'authUser' })
