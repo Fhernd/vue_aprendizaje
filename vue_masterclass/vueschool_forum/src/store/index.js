@@ -14,16 +14,16 @@ export default createStore({
 
         return {
             ...user,
-            posts() {
+            get posts() {
                 return state.posts.filter(post => post.userId === user.id)
             },
-            postsCount() {
+            get postsCount() {
                 return this.posts.length
             },
-            threads() {
+            get threads() {
                 return state.threads.filter(thread => thread.userId === user.id)
             },
-            threadsCount() {
+            get threadsCount() {
                 return this.threads.length
             }
         }

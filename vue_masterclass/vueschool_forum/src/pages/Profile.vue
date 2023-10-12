@@ -22,7 +22,7 @@
                     <a href="#">See only started threads?</a>
                 </div>
                 <hr>
-                <PostList :posts="userPosts" />
+                <PostList :posts="user.posts" />
             </div>
         </div>
     </div>

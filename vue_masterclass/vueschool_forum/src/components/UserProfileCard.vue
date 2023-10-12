@@ -15,8 +15,8 @@
         <span class="online">{{ user.username }} is online</span>
 
         <div class="stats">
-            <span>{{ userPostsCount }} posts</span>
-            <span>{{ userThreadsCount }} threads</span>
+            <span>{{ user.postsCount }} posts</span>
+            <span>{{ user.threadsCount }} threads</span>
         </div>
 
         <p v-if="user.website" class="text-large text-center">
