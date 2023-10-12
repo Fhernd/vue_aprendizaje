@@ -7,27 +7,30 @@ export default createStore({
         ...sourceData,
         authId: 'VXjpr2WHa8Ux4Bnggym8QFLdv5C3'
     },
-    getters: state => {
-        const user = state.users.find(user => user.id === state.authId)
+    getters: {
+        authUser: state => {
+            const user = state.users.find(user => user.id === state.authId)
 
-        if (!user) return null
+            if (!user) return null
 
-        return {
-            ...user,
-            get posts() {
-                return state.posts.filter(post => post.userId === user.id)
-            },
-            get postsCount() {
-                return this.posts.length
-            },
-            get threads() {
-                return state.threads.filter(thread => thread.userId === user.id)
-            },
-            get threadsCount() {
-                return this.threads.length
+            return {
+                ...user,
+                get posts() {
+                    return state.posts.filter(post => post.userId === user.id)
+                },
+                get postsCount() {
+                    return this.posts.length
+                },
+                get threads() {
+                    return state.threads.filter(thread => thread.userId === user.id)
+                },
+                get threadsCount() {
+                    return this.threads.length
+                }
             }
         }
-    },
+    }
+    ,
     actions: {
         createPost(context, post) {
             post.id = 'greatPost' + Math.random();
@@ -40,7 +43,7 @@ export default createStore({
         setPost(state, { post }) {
             state.posts.push(post);
         },
-        appendPostToThread(state, { postId, threadId}) {
+        appendPostToThread(state, { postId, threadId }) {
             const thread = state.threads.find(thread => thread.id === threadId)
             thread.posts.push(postId);
         }
