@@ -25,12 +25,22 @@
             <label for="user_website" class="form-label">Website</label>
             <input type="text" class="form-input" placeholder="https://example.com" id="user_website" autocomplete="off">
         </div>
+
+        <div class="btn-group space-between">
+            <button class="btn-ghost">Cancel</button>
+            <button type="submit" class="submit">Save</button>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    props: {
+        user: {
+            type: Object,
+            required: true
+        }
+    }
 }
 </script>
 
