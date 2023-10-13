@@ -2,8 +2,8 @@
     <div class="container">
         <div class="flex-grid">
             <div class="col-3 push-top">
-                <UserProfileCard :user="user" />
-                <UserProfileCardEditor :user="user" />
+                <UserProfileCard v-if="!edit" :user="user" />
+                <UserProfileCardEditor v-else :user="user" />
                 
                 <p class="text-xsmall text-faced text-center">
                     Member since june 2003, last visited 4 hours ago
@@ -44,7 +44,13 @@ export default {
     },
     computed: {
         ...mapGetters({ user: 'authUser' })
-    }
+    },
+    props: {
+        edit: {
+            type: Boolean,
+            default: false
+        }
+    },
 }
 </script>
 <style></style>

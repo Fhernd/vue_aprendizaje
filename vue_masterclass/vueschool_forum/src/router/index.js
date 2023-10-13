@@ -16,6 +16,12 @@ const routes = [
         component: Home
     },
     {
+        path: '/me/edit',
+        name: 'ProfileEdit',
+        component: Profile,
+        props: { edit: true }
+    },
+    {
         path: '/me',
         name: 'Profile',
         component: Profile
@@ -43,7 +49,7 @@ const routes = [
             if (threadExist) {
                 return next();
             } else {
-                next({ 
+                next({
                     name: 'NotFound',
                     params: { pathMatch: to.path.substring(1).split('/') },
                     query: to.hash
