@@ -41,11 +41,15 @@ export default createStore({
         threadId: post.threadId,
       });
     },
-    createThread({ commit, state }, { text, title, forumId }) {
+    createThread({ commit, state, dispatch }, { text, title, forumId }) {
       const id = (post.id = 'greatPost' + Math.random());
       const userId = state.authId;
       const publishedAt = Math.floor(Date.now() / 1000);
       const thread = { forumId, title, publishedAt, userId, id };
+
+      commit('setThread', { thread });
+
+      dispatch('createPost', { text, threadId: thread.id });
     },
     updateUser({ commit }, user) {
       commit('setUser', { user, userId: user.id });
@@ -55,6 +59,9 @@ export default createStore({
     setPost(state, { post }) {
       state.posts.push(post);
     },
+    setThread(state, { thread }) {
+      state.threads.push(thread);
+    },
     setUser(state, { user, userId }) {
       const userIndex = state.users.findIndex((user) => user.id === userId);
 
@@ -62,6 +69,7 @@ export default createStore({
     },
     appendPostToThread(state, { postId, threadId }) {
       const thread = state.threads.find((thread) => thread.id === threadId);
+      thread.posts = thread.posts || [];
       thread.posts.push(postId);
     },
   },
