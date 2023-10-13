@@ -23,7 +23,31 @@
 
 <script>
 export default {
-    
+    props: {
+        forum: {
+            type: Object,
+            required: true
+        }
+    },
+    data() {
+        return {
+            title: '',
+            content: ''
+        }
+    },
+    methods: {
+        save() {
+            const thread = {
+                title: this.title,
+                content: this.content
+            }
+
+            this.$emit('save', { thread })
+
+            this.title = ''
+            this.content = ''
+        }
+    }
 }
 </script>
 
