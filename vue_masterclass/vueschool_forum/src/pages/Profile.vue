@@ -4,15 +4,6 @@
             <div class="col-3 push-top">
                 <UserProfileCard v-if="!edit" :user="user" />
                 <UserProfileCardEditor v-else :user="user" />
-                
-                <p class="text-xsmall text-faced text-center">
-                    Member since june 2003, last visited 4 hours ago
-                </p>
-
-                <div class="text-center">
-                    <hr>
-                    <a href="#" class="btn-green btn-small">Edit Profile</a>
-                </div>
             </div>
 
             <div class="col-7 push-top">
