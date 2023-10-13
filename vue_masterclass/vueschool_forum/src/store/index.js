@@ -39,6 +39,30 @@ export default createStore({
             commit('setPost', { post });
             commit('appendPostToThread', { postId: post.id, threadId: post.threadId });
         },
+        createThread({ commit, state}, {text, title}) {
+            const thread = {
+                "contributors": [
+                    "FsCDAk9w8NeXEceLV87arpsXjnQ2",
+                    "L664y3qZSubDbT1R6npC0EEybJ73",
+                    "VXjpr2WHa8Ux4Bnggym8QFLdv5C3"
+                ],
+                "firstPostId": "-KsjWehQ--apjDBwSBCZ",
+                "forumId": "-KsjPat5MWCx-dkjNVg8",
+                "lastPostAt": 1594040497,
+                "lastPostId": "-KsjnAAjzfpznUVh4DSa",
+                "posts": [
+                    "-KsjWehQ--apjDBwSBCZ",
+                    "-KsjefUiIuNkJieBc5Rq",
+                    "-KsjfvciJhJnebrL4Iw7",
+                    "-KsjnAAjzfpznUVh4DSa"
+                ],
+                "publishedAt": 1594035908,
+                "slug": "what-kind-of-pet-do-you-have",
+                "title": "What kind of pet do you have?",
+                "userId": "ALXhxjwgY9PinwNGHpfai6OWyDu2",
+                "id": "-KsjWehQ--apjDBwSBCY"
+            }
+        },
         updateUser({ commit }, user) {
             commit('setUser', { user, userId: user.id });
         }
