@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="btn-group">
-				<button class="btn btn-ghost">Cancel</button>
+				<button @click="cancel" class="btn btn-ghost">Cancel</button>
 				<button class="btn btn-blue" type="submit" name="Publish">
 					Publish
 				</button>
@@ -64,8 +64,11 @@ export default {
 				content: this.content,
 			})
 
-			this.$router.push({ name: 'Forum', params: { id: thread.id } })
+			this.$router.push({ name: 'ThreadShow', params: { id: thread.id } })
 		},
+		cancel() {
+			this.$router.push({ name: 'Forum', params: { id: this.forum.id } })
+		}
 	},
 }
 </script>
