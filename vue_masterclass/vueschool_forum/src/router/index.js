@@ -5,6 +5,7 @@ import Forum from '@/pages/Forum.vue'
 import Home from '@/pages/Home.vue'
 import Profile from '@/pages/Profile.vue'
 import ThreadShow from '@/pages/ThreadShow.vue'
+import ThreadCreate from '@/pages/ThreadCreate.vue'
 import NotFound from '@/pages/NotFound.vue'
 
 import sourceData from '@/data.json'
@@ -39,6 +40,12 @@ const routes = [
 		component: Forum,
 		props: true,
 	},
+    {
+        path: '/thread/create',
+        name: 'ThreadCreate',
+        component: ThreadCreate,
+        props: true,
+    },
 	{
 		path: '/thread/show/:id',
 		name: 'ThreadShow',
