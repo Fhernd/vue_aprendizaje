@@ -41,7 +41,7 @@ const routes = [
 		props: true,
 	},
     {
-        path: '/thread/create',
+        path: '/forum/:forumId/thread/create',
         name: 'ThreadCreate',
         component: ThreadCreate,
         props: true,
