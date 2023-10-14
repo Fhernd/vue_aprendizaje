@@ -52,6 +52,8 @@ export default createStore({
 			commit('setThread', { thread })
 
 			dispatch('createPost', { text, threadId: thread.id })
+            commit('appendThreadToForum', { forumId, threadId: thread.id })
+            commit('appendThreadToUser', { userId, threadId: thread.id })
 		},
 		updateUser({ commit }, user) {
 			commit('setUser', { user, userId: user.id })
