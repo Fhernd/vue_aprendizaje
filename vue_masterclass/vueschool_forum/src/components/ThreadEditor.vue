@@ -23,7 +23,9 @@
 		</div>
 
 		<div class="btn-group">
-			<button @click.prevent="$email('cancel')" class="btn btn-ghost">Cancel</button>
+			<button @click.prevent="$emit('cancel')" class="btn btn-ghost">
+				Cancel
+			</button>
 			<button class="btn btn-blue" type="submit" name="Publish">
 				Publish
 			</button>
@@ -33,23 +35,17 @@
 
 <script>
 export default {
-    data() {
-        return {
-            title: '',
-            content: '',
-        }
-    },
-    save() {
-        const thread = {
-            title: this.title,
-            content: this.content,
-        }
-
-        this.$emit('save', { thread })
-
-        this.title = ''
-        this.content = ''
-    },
+	data() {
+		return {
+			title: '',
+			content: '',
+		}
+	},
+	methods: {
+		save() {
+			this.$emit('save', { title: this.title, content: this.content })
+		},
+	},
 }
 </script>
 
