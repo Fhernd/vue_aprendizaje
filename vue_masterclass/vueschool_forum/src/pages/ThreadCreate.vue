@@ -43,7 +43,7 @@ export default {
 		forum() {
 			return this.$store.state.forums.find((f) => f.id == this.forumId)
 		},
-	},	
+	},
 	props: {
 		forumId: {
 			type: String,
@@ -57,19 +57,14 @@ export default {
 		}
 	},
 	methods: {
-		save() {
-			this.$store
-				.dispatch('createThread', {
-					forumId: this.forum.id,
-					title: this.title,
-					content: this.content,
-				})
-				.then(() => {
-					this.$router.push({
-						name: 'Forum',
-						params: { id: this.forum.id },
-					})
-				})
+		async save() {
+			const thread = await this.$store.dispatch('createThread', {
+				forumId: this.forum.id,
+				title: this.title,
+				content: this.content,
+			})
+
+			this.$router.push({ name: 'Forum', params: { id: thread.id } })
 		},
 	},
 }
