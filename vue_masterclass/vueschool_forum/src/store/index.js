@@ -42,7 +42,7 @@ export default createStore({
       });
     },
     createThread({ commit, state, dispatch }, { text, title, forumId }) {
-      const id = (post.id = 'greatPost' + Math.random());
+      const id = 'greatPost' + Math.random();
       const userId = state.authId;
       const publishedAt = Math.floor(Date.now() / 1000);
       const thread = { forumId, title, publishedAt, userId, id };
@@ -71,6 +71,11 @@ export default createStore({
       const thread = state.threads.find((thread) => thread.id === threadId);
       thread.posts = thread.posts || [];
       thread.posts.push(postId);
+    },
+    appendThreadToForum(state, { forumId, threadId }) {
+      const forum = state.forums.find((forum) => forum.id === forumId);
+      forum.threads = forum.threads || [];
+      forum.threads.push(threadId);
     },
   },
 });
