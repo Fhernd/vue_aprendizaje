@@ -43,7 +43,10 @@ export default createStore({
 				threadId: post.threadId,
 			})
 		},
-		async createThread({ commit, state, dispatch }, { text, title, forumId }) {
+		async createThread(
+			{ commit, state, dispatch },
+			{ text, title, forumId }
+		) {
 			const id = 'greatPost' + Math.random()
 			const userId = state.authId
 			const publishedAt = Math.floor(Date.now() / 1000)
@@ -52,31 +55,47 @@ export default createStore({
 			commit('setThread', { thread })
 
 			dispatch('createPost', { text, threadId: thread.id })
-            commit('appendThreadToForum', { forumId, threadId: thread.id })
-            commit('appendThreadToUser', { userId, threadId: thread.id })
+			commit('appendThreadToForum', { forumId, threadId: thread.id })
+			commit('appendThreadToUser', { userId, threadId: thread.id })
 
-            return state.threads.find(thread => thread.id === id)
+			return state.threads.find((thread) => thread.id === id)
 		},
 		updateUser({ commit }, user) {
 			commit('setUser', { user, userId: user.id })
 		},
-		updateThread({ commit, state }, { title, text, id }) {
+		async updateThread({ commit, state }, { title, text, id }) {
 			const thread = state.threads.find((thread) => thread.id === id)
 			const post = state.posts.find((post) => post.id === thread.posts[0])
-			
+
 			const newThread = { ...thread, title }
 			const newPost = { ...post, text }
 
 			commit('setThread', { thread: newThread })
 			commit('setPost', { post: newPost })
-		}
+
+			return newThread
+		},
 	},
 	mutations: {
 		setPost(state, { post }) {
-			state.posts.push(post)
+			const index = state.posts.findIndex((item) => item.id === post.id)
+
+			if (post.index && index !== -1) {
+				state.posts[index] = post
+			} else {
+				state.posts.push(post)
+			}
 		},
 		setThread(state, { thread }) {
-			state.threads.push(thread)
+			const index = state.threads.findIndex(
+				(item) => item.id === thread.id
+			)
+
+			if (post.index && index !== -1) {
+				state.threads[index] = post
+			} else {
+				state.threads.push(thread)
+			}
 		},
 		setUser(state, { user, userId }) {
 			const userIndex = state.users.findIndex(
@@ -101,6 +120,6 @@ export default createStore({
 			const user = state.users.find((user) => user.id === userId)
 			user.threads = user.threads || []
 			user.threads.push(threadId)
-		}
+		},
 	},
 })
