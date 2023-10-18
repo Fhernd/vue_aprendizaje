@@ -91,8 +91,8 @@ export default createStore({
 				(item) => item.id === thread.id
 			)
 
-			if (post.index && index !== -1) {
-				state.threads[index] = post
+			if (thread.index && index !== -1) {
+				state.threads[index] = thread
 			} else {
 				state.threads.push(thread)
 			}
