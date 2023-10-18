@@ -2,6 +2,9 @@
     <div class="col-large push-top">
         <h1>{{ thread.title }}</h1>
 
+        <router-link :to="{ name: 'ThreadEdit', params: { id: thread.id } }" class="btn-green btn-small">
+            Edit Thread </router-link>
+
         <post-list :posts="threadPosts" />
 
         <post-editor @save="addPost" />
