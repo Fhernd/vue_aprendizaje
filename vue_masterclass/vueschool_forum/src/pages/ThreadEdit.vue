@@ -17,19 +17,19 @@ export default {
 	},
 	computed: {
 		thread() {
-			return this.$store.thread.forums.find((f) => f.id == this.threadId)
+			return this.$store.thread.forums.find((f) => f.id == this.id)
 		},
 	},
 	props: {
-		threadId: {
+		id: {
 			type: String,
 			required: true,
 		},
 	},
 	methods: {
 		async save({ title, text }) {
-			const thread = await this.$store.dispatch('createThread', {
-				forumId: this.forum.id,
+			const thread = await this.$store.dispatch('updateThread', {
+				threadId: this.id,
 				title,
 				text
 			})
