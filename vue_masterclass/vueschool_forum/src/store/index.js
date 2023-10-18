@@ -80,7 +80,7 @@ export default createStore({
 		setPost(state, { post }) {
 			const index = state.posts.findIndex((item) => item.id === post.id)
 
-			if (post.index && index !== -1) {
+			if (post.id && index !== -1) {
 				state.posts[index] = post
 			} else {
 				state.posts.push(post)
@@ -91,7 +91,7 @@ export default createStore({
 				(item) => item.id === thread.id
 			)
 
-			if (thread.index && index !== -1) {
+			if (thread.id && index !== -1) {
 				state.threads[index] = thread
 			} else {
 				state.threads.push(thread)
