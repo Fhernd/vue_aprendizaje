@@ -60,6 +60,16 @@ export default createStore({
 		updateUser({ commit }, user) {
 			commit('setUser', { user, userId: user.id })
 		},
+		updateThread({ commit, state }, { title, text, id }) {
+			const thread = state.threads.find((thread) => thread.id === id)
+			const post = state.posts.find((post) => post.id === thread.posts[0])
+			
+			const newThread = { ...thread, title }
+			const newPost = { ...post, text }
+
+			commit('setThread', { thread: newThread })
+			commit('setPost', { post: newPost })
+		}
 	},
 	mutations: {
 		setPost(state, { post }) {
