@@ -6,6 +6,7 @@ import Home from '@/pages/Home.vue'
 import Profile from '@/pages/Profile.vue'
 import ThreadShow from '@/pages/ThreadShow.vue'
 import ThreadCreate from '@/pages/ThreadCreate.vue'
+import ThreadEdit from '@/pages/ThreadEdit.vue'
 import NotFound from '@/pages/NotFound.vue'
 
 import sourceData from '@/data.json'
@@ -44,6 +45,12 @@ const routes = [
         path: '/forum/:forumId/thread/create',
         name: 'ThreadCreate',
         component: ThreadCreate,
+        props: true,
+    },
+    {
+        path: '/thread/:id/edit',
+        name: 'ThreadEdit',
+        component: ThreadEdit,
         props: true,
     },
 	{
