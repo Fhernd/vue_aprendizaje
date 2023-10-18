@@ -15,10 +15,13 @@ export default {
 	components: {
 		ThreadEditor,
 	},
-	computed: {
+	computed: { 
 		thread() {
-			return this.$store.thread.forums.find((f) => f.id == this.id)
+            return this.$store.state.threads.find((thread) => thread.id == this.id)
 		},
+        text() {
+            return this.$store.state.posts.find((post) => post.id == this.thread.posts[0]).text
+        }
 	},
 	props: {
 		id: {
