@@ -27,7 +27,7 @@
 				Cancel
 			</button>
 			<button class="btn btn-blue" type="submit" name="Publish">
-				Publish
+				{{ existingThread ? 'Update' : 'Publish' }} 
 			</button>
 		</div>
 	</form>
@@ -35,6 +35,11 @@
 
 <script>
 export default {
+	computed: {
+		existingThread() {
+			return !!this.title;
+		},
+	},
 	data() {
 		return {
 			form: {

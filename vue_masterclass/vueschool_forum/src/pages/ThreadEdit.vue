@@ -32,7 +32,7 @@ export default {
 	methods: {
 		async save({ title, text }) {
 			const thread = await this.$store.dispatch('updateThread', {
-				threadId: this.id,
+				id: this.id,
 				title,
 				text
 			})
