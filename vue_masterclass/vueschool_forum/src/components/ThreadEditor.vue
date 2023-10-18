@@ -7,7 +7,7 @@
 				class="form-input"
 				id="thread_title"
 				autocomplete="off"
-				v-model="title"
+				v-model="form.title"
 			/>
 		</div>
 
@@ -18,7 +18,7 @@
 				id="thread_content"
 				rows="10"
 				cols="140"
-				v-model="content"
+				v-model="form.text"
 			></textarea>
 		</div>
 
@@ -37,13 +37,25 @@
 export default {
 	data() {
 		return {
-			title: '',
-			content: '',
+			form: {
+				title: this.title,
+				text: this.text
+			},
 		}
 	},
 	methods: {
 		save() {
-			this.$emit('save', { title: this.title, content: this.content })
+			this.$emit('save', { ...this.form })
+		},
+	},
+	props: {
+		title: {
+			type: String,
+			default: '',
+		},
+		text: {
+			type: String,
+			default: '',
 		},
 	},
 }
