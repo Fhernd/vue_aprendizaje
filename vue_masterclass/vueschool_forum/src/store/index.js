@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 
-import { findById } from '@/helpers'
+import { findById, upsert } from '@/helpers'
 
 import sourceData from '@/data.json'
 
@@ -80,24 +80,10 @@ export default createStore({
 	},
 	mutations: {
 		setPost(state, { post }) {
-			const index = state.posts.findIndex((item) => item.id === post.id)
-
-			if (post.id && index !== -1) {
-				state.posts[index] = post
-			} else {
-				state.posts.push(post)
-			}
+			upsert(state.posts, post)
 		},
 		setThread(state, { thread }) {
-			const index = state.threads.findIndex(
-				(item) => item.id === thread.id
-			)
-
-			if (thread.id && index !== -1) {
-				state.threads[index] = thread
-			} else {
-				state.threads.push(thread)
-			}
+			upsert(state.threads, thread)
 		},
 		setUser(state, { user, userId }) {
 			const userIndex = state.users.findIndex(
