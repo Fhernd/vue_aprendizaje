@@ -3,6 +3,15 @@ import { createStore } from 'vuex'
 import { findById, upsert } from '@/helpers'
 
 import sourceData from '@/data.json'
+import { make } from 'core-js/core/object'
+
+const makeAppendChildToParentMutation = ({ parent, child }) => {
+	return (state, { childId, parentId }) => {
+		const resource = findById(state[parent], parentId)
+		resource[child] = resource[child] || []
+		resource[child].push(childId)
+	}
+}
 
 export default createStore({
 	state: {
@@ -60,7 +69,7 @@ export default createStore({
 			commit('appendThreadToForum', { forumId, threadId: thread.id })
 			commit('appendThreadToUser', { userId, threadId: thread.id })
 
-			return findById(state.threads, id);
+			return findById(state.threads, id)
 		},
 		updateUser({ commit }, user) {
 			commit('setUser', { user, userId: user.id })
@@ -92,11 +101,10 @@ export default createStore({
 
 			state.users[userIndex] = user
 		},
-		appendPostToThread(state, { postId, threadId }) {
-			const thread = findById(state.threads, threadId)
-			thread.posts = thread.posts || []
-			thread.posts.push(postId)
-		},
+		appendPostToThread: makeAppendChildToParentMutation({
+			parent: 'threads',
+			child: 'posts',
+		}),
 		appendThreadToForum(state, { forumId, threadId }) {
 			const forum = findById(state.forums, forumId)
 			forum.threads = forum.threads || []
