@@ -1,9 +1,7 @@
 import { createStore } from 'vuex'
 
 import { findById, upsert } from '@/helpers'
-
 import sourceData from '@/data.json'
-import { make } from 'core-js/core/object'
 
 const makeAppendChildToParentMutation = ({ parent, child }) => {
 	return (state, { childId, parentId }) => {
@@ -50,8 +48,8 @@ export default createStore({
 			post.userId = state.authId
 			commit('setPost', { post })
 			commit('appendPostToThread', {
-				postId: post.id,
-				threadId: post.threadId,
+				childId: post.id,
+				parentId: post.threadId,
 			})
 		},
 		async createThread(
