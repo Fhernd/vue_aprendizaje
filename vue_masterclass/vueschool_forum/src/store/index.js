@@ -32,6 +32,16 @@ export default createStore({
 				},
 			}
 		},
+		thread: state => {
+			return (id) => {
+				const thread = findById(state.threads, id)
+				return {
+					...thread,
+					repliesCount: '',
+					contributorsCount: '',
+				}
+			}
+		}
 	},
 	actions: {
 		createPost({ commit, state }, post) {
