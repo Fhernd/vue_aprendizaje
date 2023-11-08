@@ -12,13 +12,13 @@
 		<p>
 			By <a href="#" class="link-unstyled">Robin</a>, 2 hours ago.
 			<span
-				style="float: right; margin-top: 2px;"
+				style="float: right; margin-top: 2px"
 				class="hide-mobile text-faded text-small"
 			>
 				3 replies by 3 contributors
 			</span>
 		</p>
-        <br>
+		<br />
 
 		<post-list :posts="threadPosts" />
 
@@ -44,7 +44,7 @@ export default {
 	},
 	computed: {
 		thread() {
-			return this.threads.find((t) => t.id == this.id)
+			return this.$store.getters.thread(this.id)
 		},
 		threadPosts() {
 			return this.posts.filter((p) => p.threadId == this.id)
